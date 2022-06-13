@@ -18,11 +18,11 @@ class CustomUser(AbstractUser):
     class Sex(models.IntegerChoices):
         FEMALE = 0, _('Female')
         MALE = 1, _('Male')
-        __empty__ = _('(Unknown)')
+        __empty__ = _('(Не указан)')
 
 
     birth_date = models.DateField(blank=True, null=True)
     sex = models.IntegerField(choices=Sex.choices, null=True, blank=True)
     phone = models.CharField(max_length=12, blank=True)
-    about = models.TextField(max_length=1000, blank=True)
-    avatar = models.ImageField(upload_to=get_avatar_path)
+    about = models.TextField(max_length=1000, blank=True, null=True)
+    avatar = models.ImageField(upload_to=get_avatar_path, blank=True)

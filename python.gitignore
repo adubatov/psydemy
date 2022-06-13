@@ -11,6 +11,9 @@ __pycache__/
 # C extensions
 *.so
 
+# User Media
+users_media/
+
 # Distribution / packaging
 .Python
 build/

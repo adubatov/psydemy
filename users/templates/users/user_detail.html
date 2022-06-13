@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {% if user.first_name or user_last_name %}
+    {{ user.first_name }} {{ user.last_name }}
+  {% else %}
+    {{ user }}
+  {% endif %}
+{% endblock title %}
+
+{% block content %}
+<h1>{{ user }}
+{% if user.is_authenticated and user == auth_user %}
+    <a href="{% url 'user_update' user.pk %}"><button class="btn btn-info">Редактировать профиль</button></a>
+{% endif %}
+</h1>
+
+
+<div class="row ">
+    {% comment %} <div class="col-sm-4"></div> {% endcomment %}
+    <div class="col-sm-2"><img class="img-fluid" src="{{ user.avatar.url }}"></div>
+</div>
+<div class="row ">
+    <div class="col-sm-4">Имя</div>
+    <div class="col-sm-8">{{ user.first_name }}</div>
+</div>
+<div class="row ">
+    <div class="col-sm-4">Фамилия</div>
+    <div class="col-sm-8">{{ user.last_name }}</div>
+</div>
+<div class="row ">
+    <div class="col-sm-4">Возраст</div>
+    <div class="col-sm-8">{{ age }}</div>
+</div>
+<div class="row">
+    <div class="col-sm-4">Email</div>
+    <div class="col-sm-8">{{ user.email }}</div>
+</div>
+
+
+
+{% endblock content %}
