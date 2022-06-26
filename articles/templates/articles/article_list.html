@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block content %}
+  <h1>Articles</h1>
+  {% if article_list %}
+    {% for article in article_list %}
+      <article class="border rounded my-4 p-4">
+        <h3><a class="link-secondary" href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></h3>
+        <small class="text-muted"><a href="{% url 'user_detail' article.author.pk %}">{{ article.author }}</a></small>
+        <small class="text-muted">{{ article.pub_date }}</small>
+        <p>{{ article.body_crop }}</p>
+      </article>
+    {% endfor %}
+  {% else %}
+    No articles yet
+  {% endif %}
+{% endblock content %}

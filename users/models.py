@@ -26,3 +26,9 @@ class CustomUser(AbstractUser):
     phone = models.CharField(max_length=12, blank=True)
     about = models.TextField(max_length=1000, blank=True, null=True)
     avatar = models.ImageField(upload_to=get_avatar_path, blank=True)
+
+    def __str__(self):
+        if self.first_name or self.last_name:
+            return f'{self.first_name} {self.last_name}'
+        else:
+            return self.username

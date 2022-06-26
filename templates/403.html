@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Доступ ограничен{% endblock title %}
+
+{% block content %}
+<h3>Доступ ограничен</h3>
+<p>Попробуйте <a href="{% url 'home' %}">сначала</a><p>
+{% endblock content %}

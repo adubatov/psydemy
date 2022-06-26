@@ -27,6 +27,8 @@ class CustomUserAdmin(UserAdmin):
                 'avatar',
                 'sex',
                 'birth_date',
+                'user_permissions',
+                'is_active',
             )
         })
     )
